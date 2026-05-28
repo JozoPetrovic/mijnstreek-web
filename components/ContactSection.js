@@ -6,101 +6,186 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="w-full bg-white py-24 px-6 flex justify-center"
+      style={{
+        width: '100%',
+        backgroundColor: '#000000', // Potpuno crna pozadina prateći About us
+        padding: '120px 24px',
+        display: 'flex',
+        justifyContent: 'center',
+        fontFamily: 'sans-serif',
+        color: '#ffffff'
+      }}
     >
+      {/* WRAPPER - Fleksibilan raspored koji se na mobitelu slaže vertikalno (column) */}
+      <div 
+        style={{
+          width: '100%',
+          maxWidth: '1100px',
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          gap: '64px'
+        }}
+      >
 
-      {/* WRAPPER */}
-        <div className="w-full max-w-6xl flex flex-row gap-6">
+        {/* BLOCK 1 - INFO (Lijeva strana) */}
+        <div style={{ flex: '1 1 400px', display: 'flex', flexDirection: 'column', gap: '32px' }}>
+          
+          <div style={{ marginBottom: '16px' }}>
+            <p style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.4em', color: '#9ca3af', fontWeight: 500, margin: '0 0 12px 0' }}>
+              Get In Touch
+            </p>
+            <h2 style={{ fontSize: 'calc(1.8rem + 1vw)', fontWeight: 300, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#ffffff', margin: 0 }}>
+              Contact Info
+            </h2>
+            <div style={{ width: '48px', height: '1px', backgroundColor: 'rgba(255, 255, 255, 0.2)', marginTop: '24px' }}></div>
+          </div>
 
-        {/* BLOCK 1 - INFO */}
-        <div className="w-1/2 border-[5px] border-black bg-white p-10">
-
-
-          <h2 className="text-4xl md:text-5xl font-[1000] uppercase mb-8">
-            Contact Info
-          </h2>
-
-          <div className="space-y-6">
-
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
             <div>
-              <p className="text-black/50 uppercase text-xs tracking-[0.3em] font-black">
+              <p style={{ color: '#9ca3af', textTransform: 'uppercase', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 600, margin: '0 0 6px 0' }}>
                 Phone
               </p>
-              <a href="tel:+31612345678" className="text-xl font-bold hover:underline">
+              <a href="tel:+31612345678" style={{ fontSize: '18px', fontWeight: 400, color: '#ffffff', textDecoration: 'none', letterSpacing: '0.05em' }}>
                 +31 6 12345678
               </a>
             </div>
 
             <div>
-              <p className="text-black/50 uppercase text-xs tracking-[0.3em] font-black">
+              <p style={{ color: '#9ca3af', textTransform: 'uppercase', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 600, margin: '0 0 8px 0' }}>
                 WhatsApp
               </p>
               <a
                 href="https://wa.me/31612345678"
                 target="_blank"
-                className="inline-block mt-2 bg-green-500 text-white px-5 py-2 font-bold uppercase text-sm border-2 border-black hover:bg-white hover:text-black transition"
+                rel="noopener noreferrer"
+                style={{
+                  inlineBlock: 'inline-block',
+                  backgroundColor: 'transparent',
+                  color: '#ffffff',
+                  padding: '10px 24px',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  fontSize: '11px',
+                  letterSpacing: '0.15em',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '2px',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s'
+                }}
               >
                 Chat Now
               </a>
             </div>
 
             <div>
-              <p className="text-black/50 uppercase text-xs tracking-[0.3em] font-black">
+              <p style={{ color: '#9ca3af', textTransform: 'uppercase', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 600, margin: '0 0 6px 0' }}>
                 Email
               </p>
-              <p className="font-bold break-all">
+              <p style={{ fontSize: '16px', fontWeight: 400, color: '#ffffff', margin: 0, wordBreak: 'break-all', letterSpacing: '0.05em' }}>
                 info@mijnstreek-elektriciens.nl
               </p>
             </div>
 
             <div>
-              <p className="text-black/50 uppercase text-xs tracking-[0.3em] font-black">
+              <p style={{ color: '#9ca3af', textTransform: 'uppercase', fontSize: '10px', letterSpacing: '0.2em', fontWeight: 600, margin: '0 0 6px 0' }}>
                 Working Hours
               </p>
-              <p className="font-bold">
+              <p style={{ fontSize: '16px', fontWeight: 400, color: '#ffffff', margin: 0, letterSpacing: '0.05em' }}>
                 Mon - Fri: 08:00 - 18:00
               </p>
             </div>
+          </div>
+
+        </div>
+
+        {/* BLOCK 2 - FORM (Desna strana) */}
+        <div style={{ flex: '1 1 450px', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ width: '100%' }}>
+
+            <h3 style={{ fontSize: '20px', fontWeight: 400, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#ffffff', marginBottom: '40px' }}>
+              Send Message
+            </h3>
+
+            <form style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <input
+                type="text"
+                style={{
+                  width: '100%',
+                  backgroundColor: '#000000',
+                  border: 'none',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+                  color: '#ffffff',
+                  padding: '14px 0',
+                  fontSize: '14px',
+                  fontWeight: 400,
+                  outline: 'none',
+                  boxShadow: 'none',
+                  letterSpacing: '0.05em'
+                }}
+                placeholder="Name"
+              />
+
+              <input
+                type="email"
+                style={{
+                  width: '100%',
+                  backgroundColor: '#000000',
+                  border: 'none',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+                  color: '#ffffff',
+                  padding: '14px 0',
+                  fontSize: '14px',
+                  fontWeight: 400,
+                  outline: 'none',
+                  boxShadow: 'none',
+                  letterSpacing: '0.05em'
+                }}
+                placeholder="Email"
+              />
+
+              <textarea
+                rows={4}
+                style={{
+                  width: '100%',
+                  backgroundColor: '#000000',
+                  border: 'none',
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+                  color: '#ffffff',
+                  padding: '14px 0',
+                  fontSize: '14px',
+                  fontWeight: 400,
+                  resize: 'none',
+                  outline: 'none',
+                  boxShadow: 'none',
+                  letterSpacing: '0.05em'
+                }}
+                placeholder="Message"
+              />
+
+              <button 
+                type="submit"
+                style={{
+                  marginTop: '20px',
+                  backgroundColor: '#ffffff',
+                  color: '#000000',
+                  padding: '14px 0',
+                  fontWeight: 'bold',
+                  textTransform: 'uppercase',
+                  fontSize: '12px',
+                  letterSpacing: '0.2em',
+                  border: 'none',
+                  borderRadius: '2px',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s'
+                }}
+              >
+                Send Message
+              </button>
+            </form>
 
           </div>
         </div>
-
-        {/* BLOCK 2 - FORM */}
-          <div className="w-1/2 border-[5px] border-black bg-black p-10 flex justify-center items-center">
-
-            <div className="w-full max-w-md">
-
-              <h3 className="text-3xl font-[1000] uppercase mb-8 text-white text-center">
-                Send Message
-              </h3>
-
-              <form className="flex flex-col gap-5">
-
-                <input
-                className="w-full bg-black border-2 border-white text-white placeholder-white/60 px-5 py-4 text-base font-semibold outline-none focus:translate-x-1 transition"
-                placeholder="Name"
-                />
-
-                <input
-                  className="w-full bg-black border-2 border-white text-white placeholder-white/60 px-5 py-4 text-base font-semibold outline-none focus:translate-x-1 transition"
-                  placeholder="Email"
-                />
-
-                  <textarea
-                    rows={5}
-                    className="w-full bg-black border-2 border-white text-white placeholder-white/60 px-5 py-4 text-base font-semibold resize-none outline-none focus:translate-x-1 transition"
-                    placeholder="Message"
-                  />
-
-                  <button className="bg-white text-black py-3 font-bold uppercase text-sm border-2 border-white hover:bg-black hover:text-white transition">
-                    Send Message
-                  </button>
-
-                </form>
-
-              </div>
-
-            </div>
 
       </div>
     </section>

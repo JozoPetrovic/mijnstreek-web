@@ -1,82 +1,139 @@
+import React from 'react';
+
 export function Services() {
   const services = [
     {
       title: "ELEKTRISCHE INSTALLATIES",
-      icon: "⚡",
-      items: ["Installaties", "Upgrades", "Groepenkasten", "Storingen"]
+      items: ["Installaties", "Upgrades", "Groepenkasten", "Storingen"],
     },
     {
       title: "TELECOM & DATA",
-      icon: "🌐",
-      items: ["Bekabeling", "Wi-Fi", "Netwerk", "Patchkast"]
+      items: ["Bekabeling", "Wi-Fi", "Netwerk", "Patchkast"],
     },
     {
       title: "SMART HOME",
-      icon: "🏠",
-      items: ["Verlichting", "Camera's", "Automatisering", "Energy"]
+      items: ["Verlichting", "Camera's", "Automatisering", "Energy"],
     },
     {
       title: "24/7 STORING",
-      icon: "🚨",
       isHighlight: true,
-      items: ["Spoedhulp", "Reparaties", "Kortsluiting", "Support"]
-    }
+      items: ["Spoedhulp", "Reparaties", "Kortsluiting", "Support"],
+    },
   ];
 
   return (
-    <section id="diensten" className="py-24 px-6 bg-[#F8FAFC]">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="diensten"
+      style={{
+        padding: '120px 24px',
+        backgroundColor: '#ffffff',
+        fontFamily: 'sans-serif'
+      }}
+    >
+      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
 
-        {/* TITLE */}
-        <div className="text-center mb-14">
-          <h2 className="text-5xl md:text-6xl font-black uppercase">
-            Onze <span className="text-blue-600">Diensten</span>
+        {/* 1. NASLOV SEKCIJE */}
+        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <p 
+            style={{
+              textTransform: 'uppercase',
+              letterSpacing: '0.4em',
+              color: '#9ca3af',
+              fontSize: '11px',
+              fontWeight: 500,
+              marginBottom: '16px'
+            }}
+          >
+            Professionele Service
+          </p>
+
+          <h2 
+            style={{
+              fontSize: 'calc(1.8rem + 1.5vw)',
+              fontWeight: 300,
+              textTransform: 'uppercase',
+              letterSpacing: '0.15em',
+              color: '#2b2b2b',
+              margin: 0
+            }}
+          >
+            Onze <span style={{ fontWeight: 600 }}>Diensten</span>
           </h2>
+
+          <div style={{ w: '60px', height: '1px', backgroundColor: '#e5e7eb', margin: '24px auto 0' }}></div>
         </div>
 
-        {/* HORIZONTAL SCROLL ROW */}
-        <div className="flex justify-center gap-6 overflow-x-auto pb-6 px-4">
-
+        {/* 2. MREŽA USLUGA - 4 stupca s tankim linijama bez šarenih kutija */}
+        <div 
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '40px',
+            alignItems: 'start'
+          }}
+        >
           {services.map((service, index) => (
             <div
               key={index}
-              className={`min-w-[380px] bg-white border-4 ${
-                service.isHighlight ? "border-red-500" : "border-black"
-              } p-6 shadow-lg flex-shrink-0`}
+              style={{
+                padding: '24px 0',
+                borderTop: service.isHighlight ? '2px solid #2b2b2b' : '1px solid #e5e7eb',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
             >
+              {/* Oznaka za hitnu intervenciju iznad naslova kartice */}
+              {service.isHighlight && (
+                <span 
+                  style={{ 
+                    fontSize: '9px', 
+                    color: '#2b2b2b', 
+                    fontWeight: 'bold', 
+                    letterSpacing: '0.2em', 
+                    marginBottom: '8px' 
+                  }}
+                >
+                  ⚡ DIREKT BESCHIKBAAR
+                </span>
+              )}
 
-              {/* ICON */}
-              <div className="text-4xl mb-3">{service.icon}</div>
-
-              {/* TITLE */}
-              <h3 className="text-lg font-black uppercase mb-4">
+              {/* NASLOV USLUGE */}
+              <h3 
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.2em',
+                  color: '#2b2b2b',
+                  marginBottom: '24px',
+                  lineHeight: '1.4'
+                }}
+              >
                 {service.title}
               </h3>
 
-              {/* ITEMS */}
-              <div className="space-y-2">
+              {/* POPIS PODUSLUGA - Čisti tekst s suptilnim razmakom */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {service.items.map((item, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <div className={`w-2 h-2 ${
-                      service.isHighlight ? "bg-red-500" : "bg-blue-600"
-                    }`} />
-                    <span className="text-sm font-bold uppercase">
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    {/* Mala, elegantna siva crtica umjesto plavog kruga */}
+                    <div style={{ width: '4px', height: '1px', backgroundColor: '#9ca3af' }} />
+                    
+                    <span 
+                      style={{
+                        fontSize: '13px',
+                        fontWeight: 400,
+                        color: '#6b7280',
+                        letterSpacing: '0.05em'
+                      }}
+                    >
                       {item}
                     </span>
                   </div>
                 ))}
               </div>
-
-              {/* BADGE */}
-              {service.isHighlight && (
-                <div className="mt-5 bg-red-500 text-white text-center font-black text-xs p-2">
-                  24/7 AVAILABLE
-                </div>
-              )}
-
             </div>
           ))}
-
         </div>
 
       </div>
